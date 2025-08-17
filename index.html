@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VisualShare - Creative Content Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome Popup -->
+    <div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome to VisualShare!</h2>
+            <p id="quote"></p>
+            <button onclick="closeWelcomeModal()">Get Started</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">⚡ VisualShare</div>
+        <input id="search" placeholder="Search #hashtag or user" />
+        <button onclick="showUploadModal()">Upload +</button>
+        <button onclick="showProfile()">Profile</button>
+    </header>
+
+    <!-- AI Chat Box -->
+    <div id="chatbot">
+        <div id="chat-header">AI Chatbot (OpenAI)</div>
+        <div id="chat-body"></div>
+        <input id="chat-input" placeholder="Ask me anything..." />
+        <button onclick="chatSend()">Send</button>
+    </div>
+    <button id="chat-toggle" onclick="toggleChatbot()">💬</button>
+
+    <main id="main-content">
+        <h2>Featured</h2>
+        <div id="image-list"></div>
+    </main>
+
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <h3>Post Image or GIF Video</h3>
+            <input id="upload-title" placeholder="Title" /><br>
+            <textarea id="upload-desc" placeholder="Description"></textarea><br>
+            <select id="upload-type">
+                <option value="image">Image</option>
+                <option value="gif">GIF Video</option>
+            </select><br>
+            <select id="upload-category"></select><br>
+            <input id="upload-hashtag" placeholder="#hashtags comma-separated" /><br>
+            <label>Pricing:</label>
+            <input type="radio" id="free" name="priceType" value="free" checked> Free
+            <input type="radio" id="paid" name="priceType" value="paid"> Paid
+            <input id="upload-price" type="number" placeholder="Enter price" min="0" style="display:none;" /><br>
+            <input id="upload-file" type="file" accept="image/,video/" /><br>
+            <button onclick="saveUpload()">Post</button>
+            <button onclick="closeUploadModal()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <h3>Your Profile</h3>
+            <input id="profile-gmail" placeholder="Gmail (simulated sign-in)" /><br>
+            <input id="profile-upi" placeholder="UPI ID" /><br>
+            <input id="profile-qr" type="file" accept="image/*"/><br>
+            <div id="profile-content"></div>
+            <button onclick="closeProfileModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
